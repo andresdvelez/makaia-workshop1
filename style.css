@@ -1,0 +1,192 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,800;1,900&family=DM+Sans:wght@400;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,900&family=Overpass:wght@400;700&display=swap");
+
+:root {
+  --very-dark-blue: hsl(216, 12%, 8%);
+  --dark-blue: hsl(213, 19%, 18%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--very-dark-blue);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Overpass";
+}
+
+.container {
+  background-color: var(--dark-blue);
+  border-radius: 15px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 350px;
+  z-index: 999;
+}
+
+.icon-wrapper {
+  background-color: hsl(217, 11%, 24%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.card-content {
+  margin-top: -0.7rem;
+}
+
+.card-content .card-title {
+  color: hsl(0, 0%, 100%);
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+
+.card-content .card-text {
+  color: hsl(217, 12%, 63%);
+  line-height: 1.4rem;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.btn-wrapper {
+  display: flex;
+  gap: 1.6rem;
+}
+
+.btn-wrapper > button {
+  border: none;
+  background-color: hsl(217, 11%, 24%);
+  border-radius: 50%;
+  color: hsl(217, 12%, 63%);
+  cursor: pointer;
+  font-weight: 700;
+  height: 2.5rem;
+  width: 2.5rem;
+  transition: 250ms ease;
+}
+
+.btn-wrapper > button:hover {
+  background-color: hsl(217, 12%, 63%);
+  color: hsl(0, 0%, 100%);
+}
+
+.btn {
+  position: relative;
+  border: none;
+  background-color: hsl(25, 97%, 53%);
+  border-radius: 25px;
+  color: #ffffff;
+  cursor: pointer;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+  height: 3rem;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200%;
+  height: 200%;
+  border-radius: 50%;
+  background-color: #fff;
+  transition: 250ms ease-in;
+  z-index: -1;
+}
+
+.btn .text {
+  transition: 250ms ease;
+}
+
+.btn .text-2 {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: max-content;
+  color: hsl(25, 97%, 53%);
+}
+
+.btn:is(:hover, :focus-visible)::before {
+  bottom: -50%;
+}
+
+.btn:is(:hover, :focus-visible) .text-1 {
+  transform: translateY(-40px);
+}
+
+.btn:is(:hover, :focus-visible) .text-2 {
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.btn-wrapper > button.active {
+  background-color: hsl(25, 97%, 53%);
+  color: #fff;
+  cursor: pointer;
+}
+
+/* .btn:hover {
+  background-color: #fff;
+  color: hsl(25, 97%, 53%);
+} */
+
+.container.back {
+  position: absolute;
+  z-index: -1;
+}
+
+.container.active {
+  opacity: 0;
+}
+
+.container.back {
+  display: flex;
+  align-items: center;
+}
+
+.container.back > .card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.raiting {
+  background-color: hsl(217, 11%, 24%);
+  border-radius: 20px;
+  color: hsl(25, 97%, 53%);
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.container.back > .card-content > .card-text {
+  text-align: center;
+}
+
+@media (max-width: 375px) {
+  .container {
+    width: 300px;
+  }
+
+  .btn-wrapper > button {
+    height: 2rem;
+    width: 2rem;
+  }
+}
